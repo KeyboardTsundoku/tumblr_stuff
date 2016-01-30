@@ -3,42 +3,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <head>
 
-	<!--
-		Designed by
-
-			_|_|_|      _|_|    _|_|_|_|    _|_|    _|  _|_|
-			_|    _|  _|_|_|_|    _|      _|_|_|_|  _|_|
-			_|    _|  _|          _|      _|        _|
-			_|_|_|      _|_|_|      _|_|    _|_|_|  _|
-			_|
-			_|
-
-			            _|        _|                      _|
-			_|      _|        _|_|_|    _|_|_|  _|_|_|
-			_|      _|  _|  _|    _|  _|    _|  _|    _|  _|
-			  _|  _|    _|  _|    _|  _|    _|  _|    _|  _|
-			    _|      _|    _|_|_|    _|_|_|  _|    _|  _|
-
-		Found at notquitetheme.tumblr.com.
-	-->
-
 	<title>{Title}</title>
         {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
 	<!-- custom colors -->
 	<meta name="if:Show Reblog Credit" content="1">
 	<meta name="if:Show Tags" content="1">
 
-	<meta name="font:TitleAndBody" content="Georgia">
-	<meta name="font:DatesReblogTags" content="Verdana">
+	<meta name="font:Title" content="Georgia">
+	<meta name="font:Body" content="Georgia">
 	<meta name="font:TextWithinBars" content="Verdana">
 	<meta name="color:Background" content="#FFFFFF"/>
 	<meta name="color:Title" content="#1D1801"/>
+	<meta name="color:Content" content="#1DFF01"/>
 	<meta name="color:BodyText" content="#1D1801"/>
-	<meta name="color:Links" content="#1D1801"/>
 	<meta name="color:Bars" content="#1D1801"/>
 	<meta name="color:TextWithinBars" content="#FFFFFF"/>
-	<meta name="color:NotesBackground" content="#FCFF8B"/>
-	<meta name="color:TagsBackground" content="#E0F1FF"/>
+	<meta name="color:NotesAndTags" content="#FCFF8B"/>
 	<!-- those were the custom colors -->
 
 	<meta name="if:Show notes" content="1"/>
@@ -49,7 +29,7 @@
 			margin: 30px 0;
 			padding: 0;
 			color: {color:BodyText};
-			font-family: {font:TitleAndBody};
+			font-family: {font:Body};
 			background: {color:Background};
 		}
 
@@ -64,7 +44,7 @@
 		}
 
 		#header {
-			width: 800px;
+			width: 900px;
 			margin: auto;
 			position: relative;
 		}
@@ -78,13 +58,14 @@
 
 			#header a.title {
 				color: {color:Title};
+				font-family: {font:Title};
 				text-decoration: none;
 				font-size: 3.75em;
 				letter-spacing: -1px;
 			}
 
 			#header .bar {
-				width: 788px;
+				width: auto;
 				height: 21px;
 				font-family: {font:TextWithinBars};
 				font-size: 0.69em;
@@ -106,7 +87,7 @@
 						border-radius: 3px;
 						-moz-border-radius: 3px;
 						-webkit-border-radius: 3px;
-						background-color: {color:TagsBackground};
+						background-color: {color:NotesAndTags};
 						filter: alpha(opacity = 95);
 						-moz-opacity: 0.95;
 						-khtml-opacity: 0.95;
@@ -123,9 +104,9 @@
 
 
 		#content {
-			width: 800px;
+			width: 900px;
 			margin: 30px auto auto auto;
-			background: {color:Title};
+			background: {color:Content};
 		}
 
 			#content .space {
@@ -143,7 +124,7 @@
 				}
 
 			#content #post {
-				width: 800px;
+				width: 900px;
 				position: relative;
 			}
 
@@ -193,7 +174,7 @@
 
 						#content #post:hover .left .notes a {
 							color: {color:BodyText};
-							background-color: {color:NotesBackground};
+							background-color: {color:NotesAndTags};
 							filter: alpha(opacity = 95);
 							-moz-opacity: 0.95;
 							-khtml-opacity: 0.95;
@@ -226,7 +207,7 @@
 
 						#content #post:hover .left .tags a.tag {
 							color: #1A1A1A;
-							background-color: {color:TagsBackground};
+							background-color: {color:NotesAndTags};
 							filter: alpha(opacity = 95);
 							-moz-opacity: 0.95;
 							-khtml-opacity: 0.95;
@@ -242,7 +223,7 @@
 							}
 
 				#content #post .right {
-					width: 500px;
+					width: 600px;
 					line-height: 1.7em;
 					float: left;
 					font-size: 0.81em;
@@ -250,7 +231,7 @@
 				}
 
 				    #content #post .right img {
-				        max-width: 100%;
+				        max-width: 110%;
 				    }
 
 					#content #post a {
@@ -259,7 +240,7 @@
 
 					#content #post blockquote {
 						font-style: italic;
-						padding-left: 15px;
+						padding-left: 5px;
 						border-left: 2px solid #1D1801;
 					}
 
@@ -330,27 +311,27 @@
 					}
 
 	#footer {
-		width: 800px;
+		width: 900px;
 		font-family: Verdana, Arial, sans-serif;
 		font-size: 0.69em;
 		margin: auto;
 	}
 
 		#footer #pagination {
-			width: 488px;
+			width: auto;
 			height: 21px;
 			color: {color:TextWithinBars};
 			line-height: 1.8em;
 			text-align: right;
 			background: {color:Bars};
 			position: relative;
-			margin: auto 0 auto 300px;
+			margin: auto 0 auto 0;
 			padding: 0 6px;
 		}
 
 			#footer #pagination .count {
 				position: absolute;
-				left: 6px;
+				left: 50px;
 			}
 
 			#footer #pagination a {
@@ -377,7 +358,7 @@
 
 				#footer #credit:hover a {
 					color: #1D1801;
-					background-color: {color:NotesBackground};
+					background-color: {color:NotesAndTags};
 					filter:alpha(opacity=95);
 					-moz-opacity:0.95;
 					-khtml-opacity: 0.95;
@@ -437,6 +418,15 @@
     ol.notes .answer_content {
     	font-weight: normal;
     }
+
+		.words {
+		    margin-left: 25px;
+		}
+
+		.mark {
+		    position: absolute;
+		    z-index: 2;
+		}
 
 	a.install {
         width: 96px;
@@ -613,9 +603,9 @@
 		</div>
 		{/block:Pagination}
 
-		<div id="credit">
+		<!--<div id="credit">
 			<a href="http://notquitetheme.tumblr.com">Not Quite</a> by <a href="http://www.petervidani.com" target="_blank">Peter Vidani</a><br/>Standing on <a href="http://www.tumblr.com">Tumblr</a>
-		</div>
+		</div>-->
 	</div>
 
 	{block:IfDisqusShortname}
