@@ -9,16 +9,25 @@
 	<meta name="if:Show Reblog Credit" content="1">
 	<meta name="if:Show Tags" content="1">
 
+	<!-- fonts -->
 	<meta name="font:Title" content="Georgia">
+	<meta name="font:Menu" content="Helvetica">
 	<meta name="font:Body" content="Georgia">
-	<meta name="font:BarText" content="Verdana">
-	<meta name="color:Background" content="#FFFFFF"/>
-	<meta name="color:Title" content="#1D1801"/>
-	<meta name="color:Content" content="#1DFF01"/>
-	<meta name="color:BodyText" content="#1D1801"/>
+	<meta name="font:Bar" content="Verdana">
+	<meta name="font:Link" content="Verdana">
+
+	<!-- colours -->
+	<meta name="color:Title" content="#FFFFFF"/>
+	<meta name="color:Background" content="#1D1801"/>
+	<meta name="color:Left" content="#1DFF01"/>
+	<meta name="color:Right" content="#FFFFFF"/>
+	<meta name="color:Post" content="#1DFF01"/>
+	<meta name="color:Body" content="#1D1801"/>
 	<meta name="color:Bar" content="#1D1801"/>
 	<meta name="color:BarText" content="#FFFFFF"/>
 	<meta name="color:Link" content="#FCFF8B"/> <!-- includes notes and tags -->
+	<meta name="color:Hover" content="#000000"/>
+	<meta name="color:HoverText" content="#FFFFF"/>
 	<!-- those were the custom colors -->
 
 	<meta name="if:Show notes" content="1"/>
@@ -28,13 +37,14 @@
 		body {
 			margin: 30px 0;
 			padding: 0;
-			color: {color:BodyText};
+			color: {color:Body};
 			font-family: {font:Body};
 			background: {color:Background};
 		}
 
 		a {
 			color: {color:Link};
+			font-family: {font:Link};
 			text-decoration: none;
 			font-weight: bold;
 		}
@@ -67,42 +77,49 @@
 
 			#header .bar {
 				width: auto;
-				height: 21px;
-				font-family: {font:BarText};
-				font-size: 0.69em;
-				line-height: 1.8em;
+				height: 30px;
+				font-family: {font:Bar};
+				font-size: 0.95em;
+				line-height: 2.0em;
 				color: {color:BarText};
 				text-align: right;
 				background: {color:Bar};
-				margin-top: 2px;
+				margin-top: 5px;
 				padding: 0 6px;
+				border-radius: 15px;
+				-moz-border-radius: 15px;
+				-webkit-border-radius: 15px;
 			}
 
 				#header .bar a {
 					color: {color:BarText};
+					font-family: {font:Link};
 					text-decoration: none;
+					padding: 0 10px;
 				}
 
 					#header .bar a:hover {
-						color: #1A1A1A;
+						color: {color:HoverText};
 						border-radius: 3px;
 						-moz-border-radius: 3px;
 						-webkit-border-radius: 3px;
-						background-color: {color:Background};
+						background-color: {color:Hover};
 						filter: alpha(opacity = 95);
 						-moz-opacity: 0.95;
 						-khtml-opacity: 0.95;
 						opacity: 0.95;
+						padding: 4px 10px;
 					}
 
-    				#content .bar a:hover:active {
-    					background-color: #D2EAFD;
+/*
+    				#content .bar a:hover {
+    					background-color: {color:Hover};
     					filter: alpha(opacity = 100);
     					-moz-opacity: 1.0;
     					-khtml-opacity: 1.0;
     					opacity: 1.0;
     				}
-
+*/
 
 		#content {
 			width: 900px;
@@ -121,7 +138,8 @@
 				}
 
 				#content .space.small {
-					height: 3px;
+					height: 30px;
+					background: {color:HoverText};
 				}
 
 			#content #post {
@@ -131,7 +149,7 @@
 
 				#content #post .left {
 					width: 270px;
-					font-family: {font:DatesReblogTags};
+					font-family: {font:Link};
 					font-size: 0.69em;
 					text-align: right;
 					float: left;
@@ -223,11 +241,15 @@
 							}
 
 				#content #post .right {
+					background-color: {Color: Post};
 					width: 600px;
 					line-height: 1.7em;
 					float: left;
 					font-size: 0.81em;
 					padding: 0 0 0 30px;
+					border-radius: 15px;
+					-moz-border-radius: 15px;
+					-webkit-border-radius: 15px;
 				}
 
 				    #content #post .right img {
