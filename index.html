@@ -11,17 +11,15 @@
 
 	<!-- fonts -->
 	<meta name="font:Title" content="Georgia">
-	<meta name="font:Menu" content="Helvetica">
-	<meta name="font:Body" content="Georgia">
+	<meta name="font:Body" content="Helvetica Neue">
 	<meta name="font:Bar" content="Verdana">
-	<meta name="font:Link" content="Verdana">
 
 	<!-- colours -->
-	<meta name="color:Title" content="#FFFFFF"/>
-	<meta name="color:Background" content="#1D1801"/>
-	<meta name="color:Left" content="#1DFF01"/>
-	<meta name="color:Right" content="#FFFFFF"/>
-	<meta name="color:Post" content="#1DFF01"/>
+	<meta name="color:TitleColor" content="#FFFFFF"/>
+	<meta name="color:BackgroundColor" content="#1D1801"/>
+	<meta name="color:Left" content="#1DDD01"/>
+	<meta name="color:Right" content="#1DDD01"/>
+	<meta name="color:Post" content="#FFFF01"/>
 	<meta name="color:Body" content="#1D1801"/>
 	<meta name="color:Bar" content="#1D1801"/>
 	<meta name="color:BarText" content="#FFFFFF"/>
@@ -32,6 +30,7 @@
 
 	<meta name="if:Show notes" content="1"/>
 	<meta name="text:Disqus Shortname" content="" />
+	<meta name="if:Enable endless scrolling" content="1">
 
 	<style type="text/css">
 		body {
@@ -39,7 +38,7 @@
 			padding: 0;
 			color: {color:Body};
 			font-family: {font:Body};
-			background: {color:Background};
+			background: {color:BackgroundColor};
 		}
 
 		a {
@@ -68,13 +67,23 @@
 			}
 
 			#header a.title {
-				color: {color:Title};
+				color: {color:TitleColor};
 				font-family: {font:Title};
 				text-decoration: none;
-				font-size: 3.75em;
+				font-size: 2.75em;
 				letter-spacing: -1px;
 			}
+			#header span.title {
+				position: relative;
+				bottom: 40px;
+				left: 15px;
+			}
 
+			#header img.avatar {
+				border-radius: 50%;
+				/*width: 10%;
+				height: 10%;*/
+			}
 			#header .bar {
 				width: auto;
 				height: 30px;
@@ -85,11 +94,39 @@
 				text-align: right;
 				background: {color:Bar};
 				margin-top: 5px;
+				margin-bottom: 30px;
 				padding: 0 6px;
 				border-radius: 15px;
 				-moz-border-radius: 15px;
 				-webkit-border-radius: 15px;
 			}
+
+				#header .bar .search {
+					text-transform:lowercase;
+					float: left;
+				}
+
+				#header .bar .search form input[type="text"] {
+					height: 18px;
+					width: 175px;
+					margin: 3px 10px;
+					font-size: 0.95em;
+					line-height: 1.0em;
+				}
+
+				/*
+				#header .bar .search:hover {
+					color: {color:HoverText};
+					border-radius: 3px;
+					-moz-border-radius: 3px;
+					-webkit-border-radius: 3px;
+					background-color: {color:Hover};
+					filter: alpha(opacity = 95);
+					-moz-opacity: 0.95;
+					-khtml-opacity: 0.95;
+					opacity: 0.95;
+					padding: 4px 10px;
+				}*/
 
 				#header .bar a {
 					color: {color:BarText};
@@ -123,8 +160,7 @@
 
 		#content {
 			width: 900px;
-			margin: 30px auto auto auto;
-			background: {color:Content};
+			margin: 0 auto;
 		}
 
 			#content .space {
@@ -134,35 +170,49 @@
 
 				#content .space.big {
 					height: 30px;
-					background: {color:Background};
+					background: {color:BackgroundColor};
+				}
+
+				#content .space.medium {
+						height: 30px;
+						background: clear;
 				}
 
 				#content .space.small {
 					height: 30px;
-					background: {color:HoverText};
+					background: clear;
 				}
 
 			#content #post {
-				width: 900px;
 				position: relative;
+				background-color: {color:Post};
+				border-bottom-right-radius: 15px;
+				-moz-border-bottom-right-radius: 15px;
+				-webkit-border-bottom-right-radius: 15px;
+				border-bottom-left-radius: 30px;
+				-moz-border-bottom-left-radius: 30px;
+				-webkit-border-bottom-left-radius: 30px;
+				padding: 5px;
 			}
 
 				#content #post .left {
-					width: 270px;
+					width: 200px;
 					font-family: {font:Link};
-					font-size: 0.69em;
+					font-size: 0.95em;
 					text-align: right;
 					float: left;
+					background-color: {color:Left};
 				}
 
 					#content #post .left a.timestamp {
-						width: 258px;
 						height: 21px;
 						color: {color:BarText};
+						text-style: none;
 						text-decoration: none;
-						line-height: 1.8em;
+						font-style: oblique;
+						font-size: 0.80em;
 						background: {color:Bar};
-						padding: 0 6px;
+						padding: 4px 6px 0 0;
 						display: block
 					}
 
@@ -226,7 +276,7 @@
 
 						#content #post:hover .left .tags a.tag {
 							color: {color:BarText};
-							background-color: {color:Background};
+							background-color: {color:Hover};
 							filter: alpha(opacity = 95);
 							-moz-opacity: 0.95;
 							-khtml-opacity: 0.95;
@@ -241,24 +291,33 @@
 							}
 
 				#content #post .right {
-					background-color: {Color: Post};
-					width: 600px;
+					background-color: {Color:Right};
 					line-height: 1.7em;
-					float: left;
-					font-size: 0.81em;
-					padding: 0 0 0 30px;
-					border-radius: 15px;
-					-moz-border-radius: 15px;
-					-webkit-border-radius: 15px;
+					font-size: 0.95em;
+					padding: 5px 10px;
+					margin: 0 0 0 210px;
+					border-radius: 5px;
+					-moz-border-radius: 5px;
+					-webkit-border-radius: 5px;
 				}
 
 				    #content #post .right img {
 				        max-width: 110%;
 				    }
 
+					#content .center {
+							display: table;
+							margin: 0 auto;
+					}
+
 					#content #post a {
 						color: {color:Link};
 						text-decoration: underline;
+					}
+
+					#content #post a:hover {
+						color: {color:Link};
+						background-color: {color:HoverText};
 					}
 
 					#content #post blockquote {
@@ -268,7 +327,7 @@
 					}
 
 					#content #post .right a.title {
-						color: {color:Title};
+						color: {color:TitleColor};
 						font-size: 1em;
 						font-weight: bold;
 						text-decoration: none;
@@ -334,26 +393,32 @@
 
 	#footer {
 		width: 900px;
-		font-family: Verdana, Arial, sans-serif;
-		font-size: 0.69em;
-		margin: auto;
+		font-size: 0.95em;
+		margin: 0 auto;
+		height: 30px;
+		font-family: {font:Bar};
+		font-size: 0.95em;
+		line-height: 2.0em;
+		color: {color:BarText};
+		text-align: right;
+		background: {color:Bar};
 	}
 
 		#footer #pagination {
 			width: auto;
-			height: 21px;
-			color: {color:BarText};
-			line-height: 1.8em;
 			text-align: right;
-			background: {color:Bar};
 			position: relative;
-			margin: auto 0 auto 0;
+			margin: auto 0;
 			padding: 0 6px;
+			border-radius: 15px;
+			-moz-border-radius: 15px;
+			-webkit-border-radius: 15px;
 		}
 
 			#footer #pagination .count {
 				position: absolute;
 				left: 50px;
+				font-family: {font:Bar};
 			}
 
 			#footer #pagination a {
@@ -361,6 +426,39 @@
 				text-decoration: none;
 			}
 
+			#footer #pagination a:hover {
+				color: {color:HoverText};
+				border-radius: 3px;
+				-moz-border-radius: 3px;
+				-webkit-border-radius: 3px;
+				background-color: {color:Hover};
+				filter: alpha(opacity = 95);
+				-moz-opacity: 0.95;
+				-khtml-opacity: 0.95;
+				opacity: 0.95;
+				text-decoration: none;
+			}
+			/*
+			#header .bar a {
+				color: {color:BarText};
+				font-family: {font:Link};
+				text-decoration: none;
+				padding: 0 10px;
+			}
+
+				#header .bar a:hover {
+					color: {color:HoverText};
+					border-radius: 3px;
+					-moz-border-radius: 3px;
+					-webkit-border-radius: 3px;
+					background-color: {color:Hover};
+					filter: alpha(opacity = 95);
+					-moz-opacity: 0.95;
+					-khtml-opacity: 0.95;
+					opacity: 0.95;
+					padding: 4px 10px;
+				}
+				*/
 		#footer #credit {
 			width: 500px;
 			color: #9C9C9C;
@@ -465,13 +563,18 @@
 	<link rel="shortcut icon" href="{Favicon}">
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}" />
 	<meta name="viewport" content="width=850" />
+
+	{block:IfEnableEndlessScrolling}
+		<script type="text/javascript" src="http://static.tumblr.com/q0etgkr/EIBmz7s0p/infinitescrolling.js"></script>
+	{/block:IfEnableEndlessScrolling}
 </head>
 <body>
     <!--<a href="http://www.tumblr.com/theme/105" class="install"></a>-->
 
 	<div id="header">
 		<a class="title" href="/">
-			{Title}
+			<img class="avatar" src="https://38.media.tumblr.com/avatar_00d97aa50b13_128.png" alt="Comfortably Quiet" data-pin-nopin="true">
+			<span class="title">{Title}</span>
 		</a>
 		{block:Description}
 		<div class="description">
@@ -479,12 +582,17 @@
 		</div>
 		{/block:Description}
 		<div class="bar">
+				<span class="search">
+					<form action="/search" method="get">
+						<input type="text" name="q" placeholder="Search tags..." value="{SearchQuery}"/>
+					</form>
+				</span>
 		    {block:HasPages}
-                {block:Pages}<a href="{URL}" target="_blank">{Label}</a> | {/block:Pages}
-            {/block:HasPages}
-            {block:AskEnabled}<a href="/ask">{AskLabel}</a> | {/block:AskEnabled}
-            {block:SubmissionsEnabled}<a href="/submit">{SubmitLabel}</a> | {/block:SubmissionsEnabled}
-		    <span style="text-transform:lowercase;"><a href="{RSS}">{lang:RSS}</a> | <a href="/archive">{lang:Archive}</a></span>
+          {block:Pages}<a href="{URL}" target="_blank">{Label}</a> | {/block:Pages}
+        {/block:HasPages}
+        {block:AskEnabled}<a href="/ask">{AskLabel}</a> {/block:AskEnabled}
+        <!--{block:SubmissionsEnabled}<a href="/submit">{SubmitLabel}</a> | {/block:SubmissionsEnabled}
+		    <span style="text-transform:lowercase;"><a href="{RSS}">{lang:RSS}</a> | <a href="/archive">{lang:Archive}</a></span> -->
 		</div>
 	</div>
 
@@ -514,121 +622,95 @@
 				{/block:IfShowTags}
 			</div>
 			<div class="right">
-		{block:Text}
-				{block:Title}
-				<a class="title" href="{Permalink}">{Title}</a><br />
-				<div class="space small"></div>
-				{/block:Title}
-				{Body}
-				{block:More}<a href="{Permalink}">{lang:Read more}</a>{/block:More}
-		{/block:Text}
+				{block:Text}
+						{block:Title}
+						<a class="title" href="{Permalink}">{Title}</a>
+						{/block:Title}
+						{Body}
+						{block:More}<a href="{Permalink}">{lang:Read more}</a>{/block:More}
+				{/block:Text}
 
-		{block:Photo}
-				{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}">{LinkCloseTag}
-				<div class="space small"></div>
-				{block:Caption}{Caption}{/block:Caption}
-		{/block:Photo}
+				{block:Photo}
+						<div class="center">{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}">{LinkCloseTag}</div>
+						{block:Caption}<br/>{Caption}{/block:Caption}
+				{/block:Photo}
 
-		{block:Video}
-				{Video-500}
-				<div class="space small"></div>
-				{block:Caption}{Caption}{/block:Caption}
-		{/block:Video}
+				{block:Video}
+						<div class="center">{Video-500}</div>
+						{block:Caption}<br/>{Caption}{/block:Caption}
+				{/block:Video}
 
-		{block:Photoset}
-				{Photoset-500}
-				<div class="space small"></div>
-				{block:Caption}{Caption}{/block:Caption}
-		{/block:Photoset}
+				{block:Photoset}
+						{Photoset-500}
+						<div class="space small"></div>
+						{block:Caption}{Caption}{/block:Caption}
+				{/block:Photoset}
 
-		{block:Audio}
-				<div class="audio">
-					{block:AudioEmbed}
-						{AudioEmbed-500}
-					{/block:AudioEmbed}
+				{block:Audio}
+						<div class="audio">
+							{block:AudioEmbed}
+								{AudioEmbed-500}
+							{/block:AudioEmbed}
 
-					{block:AudioPlayer}
-						{AudioPlayerWhite}&nbsp;&nbsp;{block:ExternalAudio}<a href="{ExternalAudioURL}" class="download_link">{lang:Download}</a>{/block:ExternalAudio}
-					{/block:AudioPlayer}
-				</div>
-				{block:Caption}{Caption}{/block:Caption}
-		{/block:Audio}
+							{block:AudioPlayer}
+								{AudioPlayerWhite}&nbsp;&nbsp;{block:ExternalAudio}<a href="{ExternalAudioURL}" class="download_link">{lang:Download}</a>{/block:ExternalAudio}
+							{/block:AudioPlayer}
+						</div>
+						{block:Caption}{Caption}{/block:Caption}
+				{/block:Audio}
 
-		{block:Chat}
-				{block:Title}
-				<a class="title" href="{Permalink}">{Title}</a><br />
-				<div class="space small"></div>
-				{/block:Title}
-				<table>
-					{block:Lines}
-					{block:Label}<tr class="line{UserNumber}"><td class="name">{Label}</td>{/block:Label}<td class="words">{Line}</td></tr>
-					{/block:Lines}
-				</table>
-		{/block:Chat}
+				{block:Chat}
+						{block:Title}
+						<a class="title" href="{Permalink}">{Title}</a>
+						<div class="space small"></div>
+						{/block:Title}
+						<table>
+							{block:Lines}
+							{block:Label}<tr class="line{UserNumber}"><td class="name">{Label}</td>{/block:Label}<td class="words">{Line}</td></tr>
+							{/block:Lines}
+						</table>
+				{/block:Chat}
 
-		{block:Quote}
-				<div class="quote">
-					<div class="mark">&#8220;</div>
-					<div class="words">{Quote}</div>
-					{block:Source}<div class="byline">&mdash; {Source}</div>{/block:Source}
-				</div>
-		{/block:Quote}
+				{block:Quote}
+						<div class="quote">
+							<div class="mark">&#8220;</div>
+							<div class="words">{Quote}</div>
+							{block:Source}<div class="byline">&mdash; {Source}</div>{/block:Source}
+						</div>
+				{/block:Quote}
 
-		{block:Link}
-				<a class="link" href="{URL}" {Target}>{Name}</a><br />
-				<div class="space small"></div>
-				{block:Description}{Description}{/block:Description}
-		{/block:Link}
+				{block:Link}
+						<a class="link" href="{URL}" {Target}>{Name}</a>
+						{block:Description}{Description}{/block:Description}
+				{/block:Link}
 
-          		{block:Permalink}
-          		{block:IfShowNotes}{PostNotes}{/block:IfShowNotes}
+    		{block:Permalink}
+    		{block:IfShowNotes}{PostNotes}{/block:IfShowNotes}
 
-                {block:IfDisqusShortname}
-                <div class="notecontainer" style="margin: 40px 0 0 0; padding: 0;">
-                  <div id="disqus_thread"></div>
-                  <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
-                  <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
-                </div>
-                <div style="text-align: right; margin-top: 5px">
-                  {lang:Blog comments powered by Disqus 2}
-                </div>
-                {/block:IfDisqusShortname}
-                {/block:Permalink}
-  			</div>
-  		</div>
+          {block:IfDisqusShortname}
+          <div class="notecontainer" style="margin: 40px 0 0 0; padding: 0;">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+            <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
+          </div>
+          <div style="text-align: right; margin-top: 5px">
+            {lang:Blog comments powered by Disqus 2}
+          </div>
+          {/block:IfDisqusShortname}
+          {/block:Permalink}
+	  			</div>
+					<div class="space medium"></div>
+	  		</div>
 
   		<div class="space big"></div>
         {/block:Posts}
 	</div>
-
+<!--
 	<div id="footer">
-		{block:PermalinkPagination}
-		<div id="pagination">
-			{block:NextPost}
-			<a href="{NextPost}">&lt;</a>&nbsp;&nbsp;&nbsp;
-			{/block:NextPost}
-			{block:PreviousPost}
-			<a href="{PreviousPost}">&gt;</a>
-			{/block:PreviousPost}
-		</div>
-		{/block:PermalinkPagination}
-
-		{block:Pagination}
-		<div id="pagination" style="text-transform:lowercase;">
-			<div class="count">{lang:CurrentPage of TotalPages}</div>
-			{block:PreviousPage}
-			<a href="{PreviousPage}">{lang:Previous}</a> |
-			{/block:PreviousPage}
-			{block:NextPage}
-			<a href="{NextPage}">{lang:Next page}</a>
-			{/block:NextPage}
-		</div>
-		{/block:Pagination}
-
-		<!--<div id="credit">
+		<div id="credit">
 			<a href="http://notquitetheme.tumblr.com">Not Quite</a> by <a href="http://www.petervidani.com" target="_blank">Peter Vidani</a><br/>Standing on <a href="http://www.tumblr.com">Tumblr</a>
-		</div>-->
-	</div>
+		</div>
+	</div>-->
 
 	{block:IfDisqusShortname}
   <script type="text/javascript">
