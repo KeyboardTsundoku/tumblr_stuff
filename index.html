@@ -88,10 +88,10 @@
 				width: auto;
 				height: 30px;
 				font-family: {font:Bar};
-				font-size: 0.95em;
-				line-height: 2.0em;
+				font-size: 0.90em;
+				line-height: 1.90em;
 				color: {color:BarText};
-				text-align: right;
+				text-align: center;
 				background: {color:Bar};
 				margin-top: 5px;
 				margin-bottom: 30px;
@@ -582,11 +582,6 @@
 		</div>
 		{/block:Description}
 		<div class="bar">
-				<span class="search">
-					<form action="/search" method="get">
-						<input type="text" name="q" placeholder="Search tags..." value="{SearchQuery}"/>
-					</form>
-				</span>
 		    {block:HasPages}
           {block:Pages}<a href="{URL}" target="_blank">{Label}</a> | {/block:Pages}
         {/block:HasPages}
