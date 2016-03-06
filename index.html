@@ -89,7 +89,7 @@
 				height: 30px;
 				font-family: {font:Bar};
 				font-size: 0.90em;
-				line-height: 1.90em;
+				line-height: 2.20em;
 				color: {color:BarText};
 				text-align: center;
 				background: {color:Bar};
@@ -132,7 +132,7 @@
 					color: {color:BarText};
 					font-family: {font:Link};
 					text-decoration: none;
-					padding: 0 10px;
+					padding: 0 9px;
 				}
 
 					#header .bar a:hover {
@@ -145,7 +145,7 @@
 						-moz-opacity: 0.95;
 						-khtml-opacity: 0.95;
 						opacity: 0.95;
-						padding: 4px 10px;
+						padding: 3px 9px;
 					}
 
 /*
@@ -595,7 +595,7 @@
 		{block:Posts}
 		<div id="post">
 			<div class="left">
-
+				<!--
 				<a href="{Permalink}" class="timestamp">
 				    {block:Date}{block:NewDayDate}{ShortMonth}. {DayOfMonth}, {Year} at {block:NewDayDate} {12Hour}:{Minutes}{AmPm}{block:IfShowNotes}{block:NoteCount} with {NoteCountWithLabel}{/block:NoteCount}{/block:IfShowNotes}{/block:Date}
 				</a>
@@ -607,6 +607,7 @@
   				</div>
   				{/block:RebloggedFrom}
 				{/block:IfShowReblogCredit}
+			-->
 				{block:IfShowTags}
   				{block:HasTags}
   				<div class="tags">
