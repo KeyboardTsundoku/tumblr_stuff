@@ -52,7 +52,7 @@
 		}
 
 		#header {
-			width: 900px;
+			width: 600px;
 			margin: auto;
 			position: relative;
 		}
@@ -73,7 +73,7 @@
 			}
 			#header span.title {
 				position: relative;
-				bottom: 40px;
+				bottom: 15px;
 				left: 15px;
 			}
 
@@ -131,7 +131,7 @@
 					}
 
 		#content {
-			width: 900px;
+			width: 600px;
 			margin: 0 auto;
 		}
 
@@ -161,7 +161,7 @@
 				border-radius: 30px;
 				-moz-border-radius: 30px;
 				-webkit-border-radius: 30px;
-				padding: 5px;
+				padding: 5px 20px;
 			}
 
 				#content #post .right {
@@ -287,7 +287,7 @@
 <body>
 	<div id="header">
 		<a class="title" href="/">
-			<img class="avatar" src="https://38.media.tumblr.com/avatar_00d97aa50b13_128.png" alt="Comfortably Quiet" data-pin-nopin="true">
+			<img class="avatar" src={PortraitURL-64} alt="Comfortably Quiet" data-pin-nopin="true">
 			<span class="title">{Title}</span>
 		</a>
 		{block:Description}
@@ -314,26 +314,54 @@
 						{/block:Title}
 						{Body}
 						{block:More}<a href="{Permalink}">{lang:Read more}</a>{/block:More}
+						{block:PermalinkPage}
+							{block:HasTags}
+							   {block:Tags}
+							      <a href="{TagURL}">{Tag}</a>
+							   {/block:Tags}
+							{/block:HasTags}
+						{/block:PermalinkPage}
 				{/block:Text}
 
 				{block:Photo}
 						<div class="center">{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}">{LinkCloseTag}</div>
 						{block:Caption}<br/>{Caption}{/block:Caption}
+						{block:PermalinkPage}
+							{block:HasTags}
+							   {block:Tags}
+							      <a href="{TagURL}">{Tag}</a>
+							   {/block:Tags}
+							{/block:HasTags}
+						{/block:PermalinkPage}
 				{/block:Photo}
 
 				{block:Video}
 						<div class="center">{Video-500}</div>
 						{block:Caption}<br/>{Caption}{/block:Caption}
+						{block:PermalinkPage}
+							{block:HasTags}
+							   {block:Tags}
+							      <a href="{TagURL}">{Tag}</a>
+							   {/block:Tags}
+							{/block:HasTags}
+						{/block:PermalinkPage}
 				{/block:Video}
 
 				{block:Photoset}
 						{Photoset-500}
 						<div class="space small"></div>
 						{block:Caption}{Caption}{/block:Caption}
+						{block:PermalinkPage}
+							{block:HasTags}
+							   {block:Tags}
+							      <a href="{TagURL}">{Tag}</a>
+							   {/block:Tags}
+							{/block:HasTags}
+						{/block:PermalinkPage}
 				{/block:Photoset}
 
 				{block:Audio}
-						<div class="audio">
+						<div class="center audio">
 							{block:AudioEmbed}
 								{AudioEmbed-500}
 							{/block:AudioEmbed}
@@ -343,6 +371,13 @@
 							{/block:AudioPlayer}
 						</div>
 						{block:Caption}{Caption}{/block:Caption}
+						{block:PermalinkPage}
+							{block:HasTags}
+							   {block:Tags}
+							      <a href="{TagURL}">{Tag}</a>
+							   {/block:Tags}
+							{/block:HasTags}
+						{/block:PermalinkPage}
 				{/block:Audio}
 
 				{block:Chat}
@@ -355,6 +390,13 @@
 							{block:Label}<tr class="line{UserNumber}"><td class="name">{Label}</td>{/block:Label}<td class="words">{Line}</td></tr>
 							{/block:Lines}
 						</table>
+						{block:PermalinkPage}
+							{block:HasTags}
+							   {block:Tags}
+							      <a href="{TagURL}">{Tag}</a>
+							   {/block:Tags}
+							{/block:HasTags}
+						{/block:PermalinkPage}
 				{/block:Chat}
 
 				{block:Quote}
@@ -363,11 +405,25 @@
 							<div class="words">{Quote}</div>
 							{block:Source}<div class="byline">&mdash; {Source}</div>{/block:Source}
 						</div>
+						{block:PermalinkPage}
+							{block:HasTags}
+							   {block:Tags}
+							      <a href="{TagURL}">{Tag}</a>
+							   {/block:Tags}
+							{/block:HasTags}
+						{/block:PermalinkPage}
 				{/block:Quote}
 
 				{block:Link}
 						<a class="link" href="{URL}" {Target}>{Name}</a>
 						{block:Description}{Description}{/block:Description}
+						{block:PermalinkPage}
+							{block:HasTags}
+							   {block:Tags}
+							      <a href="{TagURL}">{Tag}</a>
+							   {/block:Tags}
+							{/block:HasTags}
+						{/block:PermalinkPage}
 				{/block:Link}
 
     		{block:Permalink}
