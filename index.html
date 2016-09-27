@@ -77,9 +77,11 @@
 		.header .navbar .navbar-toggle{margin:17px 15px;padding:0;border-width:0;border-style:solid;border-color:#d8d8d8;opacity:0.5;-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;}
 		.header .navbar .navbar-toggle:hover{background:none;opacity:1;}
 		.header .navbar .navbar-toggle .icon-bar{background:{color:Nav Bar Item Color};width:30px;}
-		.header .navbar .navbar-nav{font-family:'Open Sans', Sans-Serif;font-size:12px;letter-spacing:1px;opacity:1;text-transform:uppercase;}
+		.header .navbar .navbar-nav{font-family:'Open Sans', Sans-Serif;font-size:12px;letter-spacing:1px;opacity:1;text-transform:uppercase;background-color:rgba(0,0,0,0.1);}
+		.header .navbar .navbar-nav ul{list-style:none; text-align: center;}
+		.header .navbar .navbar-nav li{display: inline;}
 		.header .navbar .navbar-nav li.search-toggle{opacity:1;font-weight:normal;}
-		.header .navbar .navbar-nav li a{color:{color:Page Link Color};}
+		.header .navbar .navbar-nav li a{color:{color:Page Link Color}; display: inline;}
 		.header .navbar .navbar-nav li a:hover{color:{color:Page Link Color Hover};opacity:0.7;}
 		.header .search-form{margin:0 0 25px;width:100%;background-color:rgba(0,0,0,0.1);position:relative;-moz-box-sizing:border-box;webkit-box-sizing:border-box;box-sizing:border-box;}
 		.header .search-form .search-close{font-family:EntypoRegular;font-size:40px;line-height:0.7;color:Verdana, Sans-Serif;opacity:0.4;float:right;display:block;width:30px;height:30px;text-align:center;margin:17px 10px;}
@@ -233,7 +235,7 @@
 						<li><a href="/ask">{AskLabel}</a></li>
 					{/block:AskEnabled}
 						<li class="visible-xs search-toggle"><a href="">Search</a></li>
-						<li><a href="/archive">{lang:Archive}</a></li>
+						<!-- hiding archive link<li><a href="/archive">{lang:Archive}</a></li>-->
 				</ul>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
@@ -262,7 +264,9 @@
 				<article class="post {TagsAsClasses}">
 					<div class="row">
 						<div class="col-sm-1 col-md-1">
+							<a href="{Permalink}">
 							<div class="post-icon {select:Post Icon Color} {block:Text}text-icon{/block:Text} {block:Photo}photo-icon{/block:Photo} {block:Quote}quote-icon{/block:Quote} {block:Video}video-icon{/block:Video} {block:Link}link-icon{/block:Link} {block:Photoset}photoset-icon{/block:Photoset} {block:Audio}audio-icon{/block:Audio} {block:Answer}answer-icon{/block:Answer} {block:Chat}chat-icon{/block:Chat}"></div>
+							</a>
 						</div>
 						<div class="col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-1">
 							{block:Date}
@@ -385,9 +389,11 @@
 				                    </ul>
 			                	{/block:HasTags}
 									<ul class="link-notes">
+										<!--
 										{block:IndexPage}
 											<li><a href="{Permalink}">{lang:Permalink}</a></li>
 										{/block:IndexPage}
+										-->
 										{block:IfDisqusShortname}
 											{block:IndexPage}
 											<li><a class="dsq-comment-count" href="{Permalink}#disqus_thread">Comments</a>
