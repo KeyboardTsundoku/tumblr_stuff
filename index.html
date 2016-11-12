@@ -72,22 +72,23 @@
 		.header .navbar{background:none;-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;border-width:0;border-style:solid;border-color:#d8d8d8;margin:10px 0;}
 		.header .navbar .search-toggle{font-family:'Open Sans', Sans-Serif;color:{color:Nav Bar Item Color};font-size:12px;letter-spacing:2px;opacity:0.4;text-transform:uppercase;font-weight:bold;line-height:2;cursor:pointer;}
 		.header .navbar .search-toggle:hover{opacity:1;}
-		.header .navbar .navbar-brand{font-family:'Open Sans', Sans-Serif;text-transform:uppercase;letter-spacing:1px;color:{color:Nav Bar Item Color};float:none;width:400px;margin:0 auto;display:block;text-align:center;opacity:0.5;}
+		.header .navbar .navbar-brand{font-family:'Open Sans', Sans-Serif; font-size: 30px; text-transform:none;letter-spacing:1px;color:{color:Nav Bar Item Color};float:none;width:400px;margin:0 auto;display:block;text-align:center;opacity:0.5;}
 		.header .navbar .navbar-brand:hover{opacity:1;}
 		.header .navbar .navbar-toggle{margin:17px 15px;padding:0;border-width:0;border-style:solid;border-color:#d8d8d8;opacity:0.5;-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;}
 		.header .navbar .navbar-toggle:hover{background:none;opacity:1;}
 		.header .navbar .navbar-toggle .icon-bar{background:{color:Nav Bar Item Color};width:30px;}
-		.header .navbar .navbar-nav{font-family:'Open Sans', Sans-Serif;font-size:12px;letter-spacing:1px;opacity:1;text-transform:uppercase;background-color:rgba(0,0,0,0.1);}
-		.header .navbar .navbar-nav ul{list-style:none; text-align: center;}
-		.header .navbar .navbar-nav li{display: inline;}
+		.header .navbar .navbar-nav{font-family:'Open Sans', Sans-Serif;font-size:12px;letter-spacing:1px;opacity:1;text-transform:none;background-color:rgba(0,0,0,0.1);}
+		.header .navbar .navbar-nav .centered{display: table; margin: 0 auto;};
+		.header .navbar .navbar-nav ul{list-style:none; margin: 0; padding: 0; text-align:center;}
+		.header .navbar .navbar-nav li{display: inline-block; float: none; font-size: 18px; padding: 0 10px;}
 		.header .navbar .navbar-nav li.search-toggle{opacity:1;font-weight:normal;}
 		.header .navbar .navbar-nav li a{color:{color:Page Link Color}; display: inline;}
 		.header .navbar .navbar-nav li a:hover{color:{color:Page Link Color Hover};opacity:0.7;}
-		.header .search-form{margin:0 0 25px;width:100%;background-color:rgba(0,0,0,0.1);position:relative;-moz-box-sizing:border-box;webkit-box-sizing:border-box;box-sizing:border-box;}
+		/*.header .search-form{margin:0 0 25px;width:100%;background-color:rgba(0,0,0,0.1);position:relative;-moz-box-sizing:border-box;webkit-box-sizing:border-box;box-sizing:border-box;}
 		.header .search-form .search-close{font-family:EntypoRegular;font-size:40px;line-height:0.7;color:Verdana, Sans-Serif;opacity:0.4;float:right;display:block;width:30px;height:30px;text-align:center;margin:17px 10px;}
 		.header .search-form .search-close:hover{cursor:pointer;opacity:1;color:#FFFFFF;}
 		.header .search-form input[type="text"]{background:none;border:none;-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;padding:15px;font-family:'Open Sans', Sans-Serif;font-size:24px;font-weight:300;color:#FFFFFF;width:80%;float:left;}
-		.header .search-form input[type="text"]:focus{outline:0;}
+		.header .search-form input[type="text"]:focus{outline:0;} */
 		.content .result{text-align:center;}
 		.content .result p{margin:0 0 20px;font-size:12px;letter-spacing:2px;opacity:1;text-transform:uppercase;font-weight:bold;color:#FFFFFF;}
 		.content .result p a{color:#4d5359;opacity:0.4;}
@@ -112,9 +113,8 @@
 		.content .posts .post .date{margin:0 0 30px;font-size:10px;letter-spacing:2px;opacity:0.2;text-transform:uppercase;line-height:1;font-weight:bold;}
 		.content .posts .post .text ul,.content .posts .post .text ol{margin:0 0 40px;padding:0 0 0 20px;font-size:16px;line-height:2;}
 		.content .posts .post .text blockquote{margin:0 0 40px;border-width:0 0 0 1px;border-style:solid;border-color:#d8d8d8;}
-		.content .posts .post .quote blockquote{font-family:'Open Sans', Sans-Serif;font-size:48px;line-height:65px;font-weight:300;border-width:0;border-style:solid;border-color:#d8d8d8;margin:0 0 40px;padding:0;}
+		.content .posts .post .quote blockquote{font-family:'Open Sans', Sans-Serif;font-size:18px;/*line-height:65px;*/font-weight:300;border-width:0;border-style:solid;border-color:#d8d8d8;margin:0 0 40px;padding:0;}
 		.source{text-align: right;}
-		.content .posts .post .quote blockquote.medium{font-size:38px;line-height:55px;}
 		.content .posts .post .answer h2{line-height:50px;}
 		.content .posts .post .answer .asker{font-size:10px;letter-spacing:2px;opacity:1;text-transform:uppercase;font-weight:bold;margin:0 0 40px;}
 		.content .posts .post .answer .asker span{opacity:0.2;}
@@ -211,10 +211,10 @@
 	</script>
 	{/block:IfAnalyticsTrackingID}
 	<header class="header">
-		<div class="container">
+		<div class="container-fluid">
 			<nav class="navbar navbar-default" role="navigation">
 			<div class="navbar-header">
-				<span class="navbar-text navbar-right search-toggle hidden-xs">Search</span>
+				<!--span class="navbar-text navbar-right search-toggle hidden-xs">Search</span-->
 				<button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
@@ -224,28 +224,30 @@
 				</button>
 				<a class="navbar-brand" href="/">{Title}</a>
 			</div>
-		  	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		    	<ul class="nav navbar-nav">
-			      	{block:HasPages}
-						{block:Pages}
-						<li><a href="{URL}">{Label}</a></li>
-						{/block:Pages}
-					{/block:HasPages}
-					{block:AskEnabled}
-						<li><a href="/ask">{AskLabel}</a></li>
-					{/block:AskEnabled}
-						<li class="visible-xs search-toggle"><a href="">Search</a></li>
-						<!-- hiding archive link<li><a href="/archive">{lang:Archive}</a></li>-->
-				</ul>
+		  	<div class="collapse navbar-collapse table" id="bs-example-navbar-collapse-1">
+			    <ul class="nav navbar-nav">
+						<div class="centered">
+				      {block:HasPages}
+							{block:Pages}
+							<li><a href="{URL}">{Label}</a></li>
+							{/block:Pages}
+						{/block:HasPages}
+						{block:AskEnabled}
+							<li><a href="/ask">{AskLabel}</a></li>
+						{/block:AskEnabled}
+							<!-- li class="visible-xs search-toggle"><a href="">Search</a></li-->
+							<!-- hiding archive link<li><a href="/archive">{lang:Archive}</a></li>-->
+						</div>
+					</ul>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
-		<form class="search-form ninja" action="/search" method="get">
+		<!--form class="search-form ninja" action="/search" method="get">
 			<div class="container">
 				<span class="search-close">&#10060;</span>
 				<input type="text" placeholder="Enter Search Term..." name="q" value="{SearchQuery}">
 			</div>
-		</form>
+		</form-->
 	</header>
 	<div class="container post-container">
 		<div class="col-md-12">
